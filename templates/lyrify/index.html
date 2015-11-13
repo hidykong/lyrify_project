@@ -1,0 +1,60 @@
+{% extends "lyrify/base.html" %}
+{% block content %}
+<br><br>
+<div id="lyricbar">
+    <div class="row white">
+        <div class="large-12 columns">
+            <a href="/logout" class="right">Logout</a>
+            <h2>Hi, {{request.user.username}}</h2>
+        </div>
+    </div>
+    <div class="row white">
+        <div class="columns large-12">
+            <form action="/create_post/" method="POST" >
+                {% csrf_token %}
+                <div class="fieldWrapper">
+                    {{ form.text }}
+                </div>
+                <input type="submit" value="Post" class="tiny button">
+            </form>
+        </div>
+    </div>
+
+    <!-- The feed -->
+    <div class="row white">
+        <div class="columns large-12">
+            <ul>
+                {% for post in all_posts %}
+                    <li>
+                        <strong><a href="/{{ post.id }}">{{ post.text }}</a></strong> -
+                        <em>{{ post.author }}</em> -
+                        <span>{{ post.created }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="container">
+  <div id="musicbar">
+    <object classid="CLSID:07000E2B-6AAD-497D-8E5B-5976560AD429"
+            border="0"
+            height="100%"
+            width="50%">
+     <param name="src" value="mymusic.mus" />
+     <param name="width" value="100%" />
+     <param name="height" value="100%" />
+     <param name="type" value="application/x-myriad-music" />
+     <param name="pluginspage" value="http://www.myriad-online.com/cgi-bin/mmplug.pl" />
+     <embed src="static/music/result.xml"
+                  width=600
+                  height=600
+                  type="application/x-myriad-music"
+                  pluginspage="http://www.myriad-online.com/cgi-bin/mmplug.pl">
+     </embed>
+    </object>
+  </div>
+{% endblock %}
+
+

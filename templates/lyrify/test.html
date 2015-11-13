@@ -1,0 +1,29 @@
+{% extends "lyrify/testbase.html" %}
+{% block content %}
+
+<h1>Round 1</h1>
+
+<br><br>
+<div class="row white" style="padding: 10px; height: 50%">
+	<form action="/check_answer/" method="POST">
+	{% csrf_token %}
+
+	{% for word in lyrics %}
+		{% if word = "-" %}
+			<input type="blank" name="{{ forloop.counter0 }}" >
+		{% else %}
+			{{ word }} 
+		{% endif %}
+
+	{% endfor %}
+	<input type="hidden" name="post_id" value="{{ post_id }}" />
+	<input type="hidden" name="index" value="{{ index }}" />
+	<br>
+	<input type="submit" value="Check Answer" class="tiny button" style="float:right; margin-top: 5%">
+	</form>
+	</p>
+</div>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+{% endblock  %}

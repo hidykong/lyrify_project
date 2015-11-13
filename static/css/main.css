@@ -1,0 +1,36 @@
+#lyricbar {
+  float: left;
+  width: 50%;
+}
+#musicbar {
+  margin-left:  50%;
+}
+
+#post-text{
+  height: 100px;
+}
+
+.post {
+	margin: 2% 10%;
+	width: 75%;
+}
+
+
+span.correct + span{
+  color: green;
+}
+
+span.wrong + span{
+  color: red;
+}
+
+form input[type='blank']{
+    width: 10%;
+    display: inline!important;
+    background: #F9F9F9;
+    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 1.1em;
+    line-height: 1.4;
+    padding: 5px;
+    margin: 0 10px;
+}

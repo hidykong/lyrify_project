@@ -1,0 +1,25 @@
+{% extends "lyrify/testbase.html" %}
+{% block content %}
+
+<h1>Round 1- Results</h1>
+
+<div class="row white" style="padding: 10px; height: 50%">
+<p>You got {{ total }} pts!</p>
+	{% for word in lyrics %}
+			{% for answer in answers %}
+				{% if forloop.parentloop.counter0 = answer.0 %}
+					{% if answer.1 = word %} <!-- guessed right -->
+						 <span class="correct"> ( {{ answer.1 }} )</span> 
+					{% else %}
+						 <span class="wrong"> ( {{ answer.1 }})</span> 
+					{% endif %}
+				{% endif %}
+			{% endfor %}
+			
+			<span>{{ word }}</span>			 
+	{% endfor %}
+
+	
+</div>
+
+{% endblock %}

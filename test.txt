@@ -1,0 +1,27 @@
+test- this- piece- 3- 
+adding: t
+adding: e
+adding: s
+adding: t
+adding: -
+adding now: -
+adding:  
+adding: t
+adding: h
+adding: i
+adding: s
+adding: -
+adding now: -
+adding:  
+adding: p
+adding: i
+adding: e
+adding: c
+adding: e
+adding: -
+adding now: -
+adding:  
+adding: 3
+adding: -
+adding now: -
+adding:  
