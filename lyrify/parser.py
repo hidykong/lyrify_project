@@ -1,6 +1,8 @@
 from music21 import *
 from django.http import HttpResponse
 
+fileList =['hen','littleplant', 'pigs','lambs', 'caterpillar', 'littleboy']
+wordCount = [26, 26, 28, 40,43, 52]
 def parse_lyrics(input):
 	input = str(input)
 	lyrics = []
@@ -18,9 +20,18 @@ def parse_lyrics(input):
 
 def place_lyrics(input):
 
-	newTitle = 'Planets'
+	newTitle = 'Testing'
 	lyrics = parse_lyrics(input)
-	file = converter.parse('static/music/hen.xml')
+
+	#find the matching song
+	filename = fileList[-1]
+	for i, song in enumerate(fileList):
+		if len(lyrics) < wordCount[i]:
+			filename = song
+			break
+
+
+	file = converter.parse('static/music/' + filename +'.xml')
 	voice = file.parts[0]
 
 	i = 0
